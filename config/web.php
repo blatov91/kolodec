@@ -42,6 +42,7 @@ $config = [
             'enableStrictParsing' => true,
             'rules' => [
                 '' => 'default/index',
+                '<a:(index|photo|calculator|contact|faq|forum|documents|brigade)>' => 'default/<a>',
                 'login' => 'user-management/auth/login',
                 'registration' => 'user-management/auth/registration',
                 '<c:(gii)>' => '<c>',

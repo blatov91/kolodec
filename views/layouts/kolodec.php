@@ -10,10 +10,12 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use kartik\icons\Icon;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+Icon::map($this, Icon::WHHG);
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -27,21 +29,101 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
-
 <?php $this->beginBody() ?>
-<div class="wrap">
+<header class="header">
     <div class="container">
-        <?= Breadcrumbs::widget([
-        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-    ]) ?>
-        <?= $content ?>
+        <div class="row header_logo">
+            <div class="col-md-12">
+                <div class="search">
+                    <div class="input-group search">
+                        <span class="input-group-addon grad_blue_1"><?= Icon::show('search', [], Icon::WHHG) ?></span>
+                        <?= Html::input('text','search',null,['class'=>'grad_blue_1 search_input']); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <?= Nav::widget([
+                    'options' => ['class' => 'left_menu'],
+                    'items' => [
+                        [
+                            'label' => 'Главная',
+                            'url' => ['/'],
+                            'active' => Yii::$app->controller->getRoute() == 'default/index',
+                            'options'=> ['class'=>'left_menu_item'],
+                            'linkOptions'=> ['class'=>'grad_blue_1 border_radius_all_5 left_menu_link']
+                        ],
+                        [
+                            'label' => 'Фотогалерея',
+                            'url' => ['/photo'],
+                            'active' => Yii::$app->controller->getRoute() == 'default/photo',
+                            'options'=> ['class'=>'left_menu_item'],
+                            'linkOptions'=> ['class'=>'grad_blue_1 border_radius_all_5 left_menu_link']
+                        ],
+                        [
+                            'label' => 'Калькулятор',
+                            'url' => ['/calculator'],
+                            'active' => Yii::$app->controller->getRoute() == 'default/calculator',
+                            'options'=> ['class'=>'left_menu_item'],
+                            'linkOptions'=> ['class'=>'grad_blue_1 border_radius_all_5 left_menu_link']
+                        ],
+                        [
+                            'label' => 'Контакты',
+                            'url' => ['/contact'],
+                            'active' => Yii::$app->controller->getRoute() == 'default/contact',
+                            'options'=> ['class'=>'left_menu_item'],
+                            'linkOptions'=> ['class'=>'grad_blue_1 border_radius_all_5 left_menu_link']
+                        ],
+                        [
+                            'label' => 'Вопросы/Ответы',
+                            'url' => ['/faq'],
+                            'active' => Yii::$app->controller->getRoute() == 'default/faq',
+                            'options'=> ['class'=>'left_menu_item'],
+                            'linkOptions'=> ['class'=>'grad_blue_1 border_radius_all_5 left_menu_link']
+                        ],
+                        [
+                            'label' => 'Форум',
+                            'url' => ['/forum'],
+                            'active' => Yii::$app->controller->getRoute() == 'default/forum',
+                            'options'=> ['class'=>'left_menu_item'],
+                            'linkOptions'=> ['class'=>'grad_blue_1 border_radius_all_5 left_menu_link']
+                        ],
+                        [
+                            'label' => 'Документы',
+                            'url' => ['/documents'],
+                            'active' => Yii::$app->controller->getRoute() == 'default/documents',
+                            'options'=> ['class'=>'left_menu_item'],
+                            'linkOptions'=> ['class'=>'grad_blue_1 border_radius_all_5 left_menu_link']
+                        ],
+                        [
+                            'label' => 'Бригады',
+                            'url' => ['/brigade'],
+                            'active' => Yii::$app->controller->getRoute() == 'default/brigade',
+                            'options'=> ['class'=>'left_menu_item'],
+                            'linkOptions'=>['class'=>'grad_blue_1 border_radius_all_5 left_menu_link']
+                        ],
+                    ],
+                ]);
+            ?>
+            <div class="row">
+                <div class="col-md-12">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <?= $content ?>
+        </div>
     </div>
 </div>
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        FOOTER
     </div>
 </footer>
 

@@ -18,4 +18,39 @@ class DefaultController extends BaseRBACController
     {
         return $this->render('index',[]);
     }
+
+    public function actionPhoto()
+    {
+        return $this->render('index',[]);
+    }
+
+    public function actionCalculator()
+    {
+        return $this->render('index',[]);
+    }
+
+    public function actionContact()
+    {
+        return $this->render('index',[]);
+    }
+
+    public function actionFaq()
+    {
+        return $this->render('index',[]);
+    }
+
+    public function actionForum()
+    {
+        return $this->render('index',[]);
+    }
+
+    public function actionDocuments()
+    {
+        return $this->render('index',[]);
+    }
+
+    public function actionBrigade()
+    {
+        return $this->render('index',[]);
+    }
 }
