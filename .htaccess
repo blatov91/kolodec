@@ -1,0 +1,4 @@
+# use mod_rewrite for pretty URL support
+RewriteEngine on
+# Otherwise forward the request to index.php
+RewriteRule ^(.*)$ web/index.php
